@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:ungpharmacy/models/product_all_model.dart';
 import 'package:ungpharmacy/models/user_model.dart';
 import 'package:ungpharmacy/utility/my_style.dart';
@@ -97,7 +97,7 @@ class _ListProductState extends State<ListProduct> {
       url = '${MyStyle().readProductWhereMode}$myIndex';
     }
 
-    Response response = await get(url);
+    http.Response response = await http.get(url);
     print('url readData ##################+++++++++++>>> $url');
     var result = json.decode(response.body);
     // print('result = $result');
@@ -255,7 +255,7 @@ class _ListProductState extends State<ListProduct> {
     String url =
         'http://somsakpharma.com/api/json_loadmycart.php?memberId=$memberId';
 
-    Response response = await get(url);
+    http.Response response = await http.get(url);
     var result = json.decode(response.body);
     var cartList = result['cart'];
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ungpharmacy/models/user_model.dart';
@@ -103,8 +103,8 @@ class _AuthenState extends State<Authen> {
       // No space
       String url =
           '${MyStyle().getUserWhereUserAndPass}?username=$user&password=$password';
-      Response response = await get(
-          url); // await จะต้องทำงานใน await จะเสร็จจึงจะไปทำ process ต่อไป
+      http.Response response = await http.get(url); 
+      // await จะต้องทำงานใน await จะเสร็จจึงจะไปทำ process ต่อไป
       var result = json.decode(response.body);
 
       int statusInt = result['status'];

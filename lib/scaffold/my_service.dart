@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ungpharmacy/models/product_all_model.dart';
 import 'package:ungpharmacy/models/user_model.dart';
@@ -138,7 +138,7 @@ class _MyServiceState extends State<MyService> {
   Future<void> decodeQRcode(String code) async {
     try {
       String url = 'http://somsakpharma.com/api/json_product.php?bqcode=$code';
-      Response response = await get(url);
+      http.Response response = await http.get(url);
       var result = json.decode(response.body);
       print('result ===*******>>>> $result');
 
@@ -238,7 +238,7 @@ class _MyServiceState extends State<MyService> {
     String url =
         'http://somsakpharma.com/api/json_loadmycart.php?memberId=$memberId';
 
-    Response response = await get(url);
+    http.Response response = await http.get(url);
     var result = json.decode(response.body);
     var cartList = result['cart'];
 
