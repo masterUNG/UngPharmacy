@@ -12,7 +12,6 @@ import 'package:ungpharmacy/scaffold/my_service.dart';
 import 'package:ungpharmacy/utility/my_style.dart';
 import 'package:ungpharmacy/utility/normal_dialog.dart';
 
-
 class DetailCart extends StatefulWidget {
   final UserModel userModel;
   DetailCart({Key key, this.userModel}) : super(key: key);
@@ -251,7 +250,8 @@ class _DetailCartState extends State<DetailCart> {
 
   Widget editQTY(String quantity) {
     newQTYint = int.parse(quantity);
-    return Row(mainAxisAlignment: MainAxisAlignment.center,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         decButton(),
         showValue(newQTYint),
