@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ungpharmacy/scaffold/authen.dart';
+import 'package:ungpharmacy/widget/test_popup.dart';
 
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(title: 'Somsak Pharma',
       debugShowCheckedModeBanner: false,
-      home: Authen(),
+      home: TestPopUp(),
     );
   }
 }
